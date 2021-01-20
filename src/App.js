@@ -14,7 +14,6 @@ class App extends Component{
         otherState: 'some other value',
         showPersons : false
 
-        
     }
 
     deletePersonHandler = (personIndex) => {
