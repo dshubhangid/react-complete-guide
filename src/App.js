@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';  
 //import AppNavigation from './NavigationBar/AppNavigation';
-import './App.css';
+import classes from './App.module.css';
 import Person from './Person/Person';
 
 class App extends Component{
@@ -13,7 +13,6 @@ class App extends Component{
         ],
         otherState: 'some other value',
         showPersons : false
-
     }
 
     deletePersonHandler = (personIndex) => {
@@ -53,7 +52,7 @@ class App extends Component{
 
     render() {
         let persons = null;
-        let btnClass = [];
+        let btnClass ='';
         if (this.state.showPersons) {
             persons = (
                 <div>
@@ -67,23 +66,23 @@ class App extends Component{
                     })}
                 </div>
             ); 
-            btnClass.push();
-            //btnClass = classes.Red;
+            //btnClass.push(classes.Red);
+            btnClass = classes.Red;
         } 
 
         const assignedClasses = [];
         if(this.state.persons.length <=2) {
-            assignedClasses.push ('');
+            assignedClasses.push (classes.red);
         }
         if(this.state.persons.length <= 1){
-            assignedClasses.push('');
+            assignedClasses.push(classes.bold);
         }
         
         return (
-            <div >
+            <div className={classes.App}>
                  <h1>Hi, I am React App </h1>
                  <p className= {assignedClasses.join(' ')}>This is really working!</p>
-                 <button className="Button" onClick={this.togglePersonsHandler}>
+                 <button className={btnClass} onClick={this.togglePersonsHandler}>
                      Toggle Persons
                  </button>
                 {persons}
